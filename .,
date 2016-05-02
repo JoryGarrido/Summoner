@@ -1,0 +1,18 @@
+-- Grab the summoner ID
+-- Use the ID to grab the Summoner Icon and division icon
+-- Use the ID to grab the summoner's stats for most played champs
+  -- This includes items, KDA, and win-ratio
+-- use the ID to grab the summoner's match history and display the last 20 games played
+  -- Include items, KDA, win/loss, game-time, and CS.
+-- Use the summoner stats for the champion ID
+-- Use the summoner stats for the item ID
+-- Grab the champion icons
+-- Grab the item icons
+
+$.AJAX CHAIN
+---------------
+Get Summoner ID
+Then, get summoner stats
+Then, get match history
+Then, get match data
+---------------

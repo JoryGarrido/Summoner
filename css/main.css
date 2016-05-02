@@ -1,0 +1,74 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+header {
+  display: flex;
+  border: 1px solid black; }
+
+.landing {
+  width: 100vw;
+  height: 100vh;
+  background: #933157;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; }
+  .landing button {
+    order: 1;
+    margin: 5px;
+    height: 15em;
+    width: 15em;
+    background-color: #582A72;
+    color: #FFFFFF; }
+
+#landingName {
+  height: 5em;
+  width: 50em;
+  font-size: 1em; }
+
+.summoner {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column; }
+
+.summonerBody {
+  display: flex;
+  flex: 1;
+  flex-direction: row; }
+  .summonerBody .sidebar1, .summonerBody .sidebar2 {
+    flex: 0 0 12em; }
+  .summonerBody .sidebar1 {
+    background-color: #933157;
+    color: white; }
+  .summonerBody .sidebar2 {
+    order: -1;
+    background-color: #933157;
+    color: white; }
+  .summonerBody .summonerResults {
+    flex: 1; }
+
+.summonerInfoIcons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #582A72; }
+  .summonerInfoIcons img {
+    width: 128px;
+    height: 128px;
+    border: 1px solid;
+    margin: 10px; }
+  .summonerInfoIcons .summonerIcon h2 {
+    margin-left: 10px; }
+  .summonerInfoIcons #summIcon {
+    order: -1; }
+  .summonerInfoIcons #divIcon {
+    width: 130px;
+    height: 130px;
+    border-color: #582A72; }
+
+.displayName h1 {
+  margin: 65px;
+  align-self: flex-end; }
+
+/*# sourceMappingURL=main.css.map */
