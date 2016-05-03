@@ -15,4 +15,13 @@ Get Summoner ID
 Then, get summoner stats
 Then, get match history
 Then, get match data
+Then, get champion icons
+Then, get item icons
 ---------------
+
+for (var key in data){
+  if(key['id'] === games[champIdgame + i]){
+  // 'http://ddragon.leagueoflegends.com/cdn/6.9.1/img/champion/' + data[name] + '.png'
+
+  }
+}
