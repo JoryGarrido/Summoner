@@ -11,7 +11,8 @@ var favoriteChamps = {
     assists: 0,
     wins: 0,
     losses: 0,
-    winRate: 0
+    winRate: 0,
+    champName: ""
   },
   champ2: {
     id: 0,
@@ -19,7 +20,8 @@ var favoriteChamps = {
     kills: 0,
     deaths: 0,
     assists: 0,
-    winRate: 0
+    winRate: 0,
+    champName: ""
   },
   champ3: {
     id: 0,
@@ -29,7 +31,8 @@ var favoriteChamps = {
     assists: 0,
     wins: 0,
     losses: 0,
-    winRate: 0
+    winRate: 0,
+    champName: ""
   }
 };
 var userStats = {
@@ -42,7 +45,7 @@ function getData($playerName){
   $.ajax({
     url: 'https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/' + $playerName + '?api_key=0a7cccf5-526b-4a6a-914d-a1c94d946019',
     method: "GET",
-  }).then(getSummLeague).then(getMatchHistory).then(getMatchID).then(getMatchData).then(getRankedStats).then(getChampImages).then(getItemImages)
+  }).then(getSummLeague).then(getMatchHistory).then(getMatchID).then(getMatchData).then(getRankedStats).then(getChampImages)
 
   function getSummLeague(data){
     summonerInfo.push(data);
@@ -99,8 +102,16 @@ function getData($playerName){
              counter++;
           }
         }
-      })
-        // console.log(games);
+      }).then(function(){
+        for (var i = 0; i < 5; i++) {
+          items['game' + i + 'Item0Img'] = 'http://ddragon.leagueoflegends.com/cdn/6.9.1/img/item/' + games['item0game' + i] + '.png';
+          items['game' + i + 'Item1Img'] = 'http://ddragon.leagueoflegends.com/cdn/6.9.1/img/item/' + games['item1game' + i] + '.png';
+          items['game' + i + 'Item2Img'] = 'http://ddragon.leagueoflegends.com/cdn/6.9.1/img/item/' + games['item2game' + i] + '.png';
+          items['game' + i + 'Item3Img'] = 'http://ddragon.leagueoflegends.com/cdn/6.9.1/img/item/' + games['item3game' + i] + '.png';
+          items['game' + i + 'Item4Img'] = 'http://ddragon.leagueoflegends.com/cdn/6.9.1/img/item/' + games['item4game' + i] + '.png';
+          items['game' + i + 'Item5Img'] = 'http://ddragon.leagueoflegends.com/cdn/6.9.1/img/item/' + games['item5game' + i] + '.png';
+        }
+      });
       }
     }
   }
@@ -147,6 +158,8 @@ function getRankedStats(data){
       }
       else if(data['champions'][i]['id'] === 0){
         userStats['winRate'] = (data['champions'][i]['stats']['totalSessionsWon'] / (data['champions'][i]['stats']['totalSessionsWon'] + data['champions'][i]['stats']['totalSessionsLost'])) * 100;
+        userStats['wins'] = (data['champions'][i]['stats']['totalSessionsWon']);
+        userStats['losses'] = (data['champions'][i]['stats']['totalSessionsLost']);
       }
     }
   })
@@ -156,23 +169,33 @@ function getChampImages(){
   $.ajax({
     url: 'https://na.api.pvp.net/api/lol/static-data/na/v1.2/champion' + '?api_key=0a7cccf5-526b-4a6a-914d-a1c94d946019',
     method: 'GET',
-  }).then(function(data){
-    for (var keys in data['data']){
-    var counter = 0;
-      for (i = 0; i < matchIds.length; i++) {
-        if(games['champIdgame' + counter] === data['data'][keys]['id']) {
-          games['champNamegame'  + counter] = data['data'][keys]['name'];
-          games['champImggame'  + counter] = 'http://ddragon.leagueoflegends.com/cdn/6.9.1/img/champion/' + games['champNamegame' + counter] + '.png';
-        }
-        counter++;
-      }
-    }
-    console.log(games);
-  })
+  }).then(function (data){
+    return getFavoriteChampImages(data);
+  }).then(function (){
+    setDisplay();
+  });
 };
 
-// function getItemImages(){
-//   for (var keys in games)
-//
-//   //http://ddragon.leagueoflegends.com/cdn/6.9.1/img/item/1001.png
-// // };
+function getFavoriteChampImages(data){
+  for (var keys in data['data']){
+  var counter = 0;
+    for (i = 0; i < matchIds.length; i++) {
+      if(games['champIdgame' + counter] === data['data'][keys]['id']) {
+        games['champNamegame'  + counter] = data['data'][keys]['name'];
+        games['champImggame'  + counter] = 'http://ddragon.leagueoflegends.com/cdn/6.9.1/img/champion/' + games['champNamegame' + counter] + '.png';
+      }
+      counter++;
+    }
+    for (var keys2 in favoriteChamps){
+      if (favoriteChamps['champ1']['id'] === data['data'][keys]['id']){
+        favoriteChamps['champ1']['champName'] = data['data'][keys]['name'];
+      }
+      else if (favoriteChamps['champ2']['id'] === data['data'][keys]['id']){
+        favoriteChamps['champ2']['champName'] = data['data'][keys]['name'];
+      }
+      else if (favoriteChamps['champ3']['id'] === data['data'][keys]['id']){
+        favoriteChamps['champ3']['champName'] = data['data'][keys]['name'];
+      }
+    }
+  }
+};

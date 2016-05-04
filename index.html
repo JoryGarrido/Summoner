@@ -9,7 +9,7 @@
 
   <header>
   <h1>Summoner</h1>
-  <input type="text" class="name">
+  <input type="text" class="name" value="gruvblaze">
   <button>GET SUMMONER ID</button>
   </header>
 
@@ -22,15 +22,114 @@
     <article class="summonerInfo">
       <div class="summonerInfoIcons">
         <div class="summonerIcon">
-          <img id="summIcon" src="" alt="">
-          <h2>W: </h2> <h2>G: 400</h2>
+          <img id="summIcon" src="http://ddragon.leagueoflegends.com/cdn/6.9.1/img/profileicon/588.png" alt="">
+          <h2 id="wins">W: 152</h2> <h2 id="losses">L: 153</h2>
         </div>
-        <div class="displayName">
-          <h1></h1>
+        <div class="winRate">
+          <h2>Win Rate: 48%</h2>
         </div>
         <div class="divisionIcon">
-          <img id="divIcon" src="" alt="">
-          <h2>Winrate:</h2>
+          <img id="divIcon" src="tier-icons/base_icons/challenger.png" alt="">
+          <h2 id="league">CHALLENGER</h2>
+        </div>
+      </div>
+      <div class="favoriteChampsHeader">
+        <h1>Favorite Champs</h1>
+      </div>
+      <div class="favoriteChamps" id="champ1">
+        <img src="http://ddragon.leagueoflegends.com/cdn/6.9.1/img/champion/Aatrox.png " alt="">
+        <h2>Games: 500</h2>
+        <h2>Win Rate: 90%</h2>
+        <h2 id=KDA>KDA: 30/4/130</h2>
+      </div>
+      <div class="favoriteChamps" id="champ2">
+        <img src="http://ddragon.leagueoflegends.com/cdn/6.9.1/img/champion/Aatrox.png " alt="">
+        <h2>Games: 300</h2>
+        <h2>Win Rate: 90%</h2>
+        <h2 id=KDA>KDA: 30/4/130</h2>
+      </div>
+      <div class="favoriteChamps" id="champ3">
+        <img src="http://ddragon.leagueoflegends.com/cdn/6.9.1/img/champion/Aatrox.png " alt="">
+        <h2>Games: 10</h2>
+        <h2>Win Rate: 90%</h2>
+        <h2 id=KDA>KDA: 30/4/130</h2>
+      </div>
+      <div class="matchHistoryHeader">
+        <h1>Match History</h1>
+      </div>
+      <div class="matches">
+        <img src="http://ddragon.leagueoflegends.com/cdn/6.9.1/img/champion/Ezreal.png" alt="">
+        <div>
+          <h1 class="win-loss">WIN</h1>
+          <h1 id="KDA">K/D/A</h1>
+        </div>
+        <div id="match1Items">
+          <img src="http://ddragon.leagueoflegends.com/cdn/6.9.1/img/item/1001.png" alt="">
+          <img src="http://ddragon.leagueoflegends.com/cdn/6.9.1/img/item/1001.png" alt="">
+          <img src="http://ddragon.leagueoflegends.com/cdn/6.9.1/img/item/1001.png" alt="">
+          <img src="http://ddragon.leagueoflegends.com/cdn/6.9.1/img/item/1001.png" alt="">
+          <img src="http://ddragon.leagueoflegends.com/cdn/6.9.1/img/item/1001.png" alt="">
+          <img src="http://ddragon.leagueoflegends.com/cdn/6.9.1/img/item/1001.png" alt="">
+        </div>
+      </div>
+      <div class="matches">
+        <img src="http://ddragon.leagueoflegends.com/cdn/6.9.1/img/champion/Ezreal.png" alt="">
+        <div>
+          <h1 class="win-loss">WIN</h1>
+          <h1 id="KDA">K/D/A</h1>
+        </div>
+        <div id="match1Items">
+          <img src="http://ddragon.leagueoflegends.com/cdn/6.9.1/img/item/1001.png" alt="">
+          <img src="http://ddragon.leagueoflegends.com/cdn/6.9.1/img/item/1001.png" alt="">
+          <img src="http://ddragon.leagueoflegends.com/cdn/6.9.1/img/item/1001.png" alt="">
+          <img src="http://ddragon.leagueoflegends.com/cdn/6.9.1/img/item/1001.png" alt="">
+          <img src="http://ddragon.leagueoflegends.com/cdn/6.9.1/img/item/1001.png" alt="">
+          <img src="http://ddragon.leagueoflegends.com/cdn/6.9.1/img/item/1001.png" alt="">
+        </div>
+      </div>
+      <div class="matches">
+        <img src="http://ddragon.leagueoflegends.com/cdn/6.9.1/img/champion/Ezreal.png" alt="">
+        <div>
+          <h1 class="win-loss">WIN</h1>
+          <h1 id="KDA">K/D/A</h1>
+        </div>
+        <div id="match1Items">
+          <img src="http://ddragon.leagueoflegends.com/cdn/6.9.1/img/item/1001.png" alt="">
+          <img src="http://ddragon.leagueoflegends.com/cdn/6.9.1/img/item/1001.png" alt="">
+          <img src="http://ddragon.leagueoflegends.com/cdn/6.9.1/img/item/1001.png" alt="">
+          <img src="http://ddragon.leagueoflegends.com/cdn/6.9.1/img/item/1001.png" alt="">
+          <img src="http://ddragon.leagueoflegends.com/cdn/6.9.1/img/item/1001.png" alt="">
+          <img src="http://ddragon.leagueoflegends.com/cdn/6.9.1/img/item/1001.png" alt="">
+        </div>
+      </div>
+      <div class="matches">
+        <img src="http://ddragon.leagueoflegends.com/cdn/6.9.1/img/champion/Ezreal.png" alt="">
+        <div>
+          <h1 class="win-loss">WIN</h1>
+          <h1 id="KDA">K/D/A</h1>
+        </div>
+        <div id="match1Items">
+          <img src="http://ddragon.leagueoflegends.com/cdn/6.9.1/img/item/1001.png" alt="">
+          <img src="http://ddragon.leagueoflegends.com/cdn/6.9.1/img/item/1001.png" alt="">
+          <img src="http://ddragon.leagueoflegends.com/cdn/6.9.1/img/item/1001.png" alt="">
+          <img src="http://ddragon.leagueoflegends.com/cdn/6.9.1/img/item/1001.png" alt="">
+          <img src="http://ddragon.leagueoflegends.com/cdn/6.9.1/img/item/1001.png" alt="">
+          <img src="http://ddragon.leagueoflegends.com/cdn/6.9.1/img/item/1001.png" alt="">
+        </div>
+      </div>
+      <div class="matches">
+        <img src="http://ddragon.leagueoflegends.com/cdn/6.9.1/img/champion/Ezreal.png" alt="">
+        <div>
+          <h1 class="win-loss">WIN</h1>
+          <h1 id="KDA">K/D/A</h1>
+        </div>
+        <div id="match1Items">
+          <img src="http://ddragon.leagueoflegends.com/cdn/6.9.1/img/item/1001.png" alt="">
+          <img src="http://ddragon.leagueoflegends.com/cdn/6.9.1/img/item/1001.png" alt="">
+          <img src="http://ddragon.leagueoflegends.com/cdn/6.9.1/img/item/1001.png" alt="">
+          <img src="http://ddragon.leagueoflegends.com/cdn/6.9.1/img/item/1001.png" alt="">
+          <img src="http://ddragon.leagueoflegends.com/cdn/6.9.1/img/item/1001.png" alt="">
+          <img src="http://ddragon.leagueoflegends.com/cdn/6.9.1/img/item/1001.png" alt="">
         </div>
       </div>
     </article>
@@ -41,81 +140,8 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--
-<main class="resultsPage">
-  <aside class="sidebars">
-    <div class="sidebar" id="sidebar1"></div>
-  </aside>
-</main>
-
-
-<section>
-  <div class="mainResults">
-    <article class="summonerInfo">
-      <div class="summonerInfoIcons">
-        <div id="summonerIcon">
-          <img id="summIcon" src="" alt="">
-          <h3 id="wins" class="gamesPlayed">W:X</h3>
-        </div>
-        <div id="divIcon">
-          <img id="divIcon" src="" alt="">
-          <h3 id="games" class="gamesPlayed">G:X</h3>
-          <h3 id="winRatio">X%</h3>
-        </div>
-      </div>
-    </article>
-  </div>
-</section> -->
-
-
-
-
-
 <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
 <script src="app.js"></script>
+<script src="app2.js"></script>
 </body>
 </html>

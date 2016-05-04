@@ -27,6 +27,9 @@ header {
   width: 50em;
   font-size: 1em; }
 
+.summonerInfo {
+  background-color: #9775AA; }
+
 .summoner {
   display: flex;
   min-height: 100vh;
@@ -60,6 +63,10 @@ header {
     margin: 10px; }
   .summonerInfoIcons .summonerIcon h2 {
     margin-left: 10px; }
+  .summonerInfoIcons .divisionIcon h2 {
+    margin-right: 10px; }
+  .summonerInfoIcons .winRate {
+    align-self: center; }
   .summonerInfoIcons #summIcon {
     order: -1; }
   .summonerInfoIcons #divIcon {
@@ -67,8 +74,34 @@ header {
     height: 130px;
     border-color: #582A72; }
 
-.displayName h1 {
-  margin: 65px;
-  align-self: flex-end; }
+.favoriteChampsHeader, .matchHistoryHeader {
+  display: flex;
+  text-align: center;
+  background-color: #AA6039;
+  margin: 10px;
+  height: 75px;
+  align-items: center;
+  justify-content: center; }
+
+.win-loss {
+  text-align: center;
+  background-color: #582A72; }
+
+.favoriteChamps, .matches {
+  display: flex;
+  background-color: #582A72;
+  margin: 10px;
+  margin-top: 0;
+  justify-content: space-between;
+  align-items: center; }
+
+#match1Items {
+  height: 150px;
+  display: flex;
+  flex-flow: column wrap-reverse;
+  justify-content: space-around;
+  margin: 10px; }
+  #match1Items img {
+    margin: 2px; }
 
 /*# sourceMappingURL=main.css.map */

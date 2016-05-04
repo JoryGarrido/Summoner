@@ -34,6 +34,9 @@ header {
   }
 }
 
+.summonerInfo{
+  background-color: $main-color-shade-1;
+}
 .summoner{
 display: flex;
 min-height: 100vh;
@@ -77,6 +80,14 @@ flex-direction:column;
       margin-left: 10px;
     }
   }
+  .divisionIcon{
+    h2{
+      margin-right: 10px;
+    }
+  }
+  .winRate{
+    align-self: center;
+  }
   #summIcon{
     order: -1;
   }
@@ -86,13 +97,38 @@ flex-direction:column;
     border-color: $secondary-color;
   }
 }
-.displayName{
-  h1{
-    margin: 65px;
-    align-self:flex-end;
-  }
+.favoriteChampsHeader, .matchHistoryHeader{
+  display: flex;
+  text-align: center;
+  background-color: $triciary-color;
+  margin: 10px;
+  height: 75px;
+  align-items: center;
+  justify-content: center;
+}
+.win-loss{
+  text-align: center;
+  background-color: $secondary-color;
 }
 
+.favoriteChamps, .matches{
+  display: flex;
+  background-color: $secondary-color;
+  margin: 10px;
+  margin-top: 0;
+  justify-content: space-between;
+  align-items: center;
+}
+#match1Items{
+  height: 150px;
+  display: flex;
+  flex-flow: column wrap-reverse;
+  justify-content: space-around;
+  margin: 10px;
+  img{
+    margin: 2px;
+  }
+}
 
 
 
