@@ -27,7 +27,7 @@
           <h2 id="wins">W: </h2> <h2 id="losses">L: </h2>
         </div>
         <div class="winRate">
-          <h2>Win Rate: </h2>
+          <svg id="fillgauge1" width="97%" height="250" onclick="gauge1.update(NewValue());"></svg>
         </div>
         <div class="divisionIcon">
           <img id="divIcon" src="" alt="">
@@ -38,33 +38,36 @@
         <h1>Favorite Champs</h1>
       </div>
       <div class="favoriteChamps" id="champ1">
-        <img src=" " alt="">
-        <h2 id="games">Games: </h2>
-        <h2 id="champWinRate">Win Rate: </h2>
-        <h2 id="champKDA">KDA: </h2>
+        <div id="champ1Info" class="info">
+          <h2 id="games">Games: </h2>
+          <h2 id="champWinRate">Win Rate: </h2>
+          <h2 id="champKDA">KDA: </h2>
+        </div>
       </div>
       <div class="favoriteChamps" id="champ2">
-        <img src=" " alt="">
-        <h2 id="games">Games: </h2>
-        <h2 id="champWinRate">Win Rate: </h2>
-        <h2 id="champKDA">KDA: </h2>
+        <div id="champ2Info" class="info">
+          <h2 id="games">Games: </h2>
+          <h2 id="champWinRate">Win Rate: </h2>
+          <h2 id="champKDA">KDA: </h2>
+        </div>
       </div>
       <div class="favoriteChamps" id="champ3">
-        <img src=" " alt="">
-        <h2 id="games">Games: </h2>
-        <h2 id="champWinRate">Win Rate: </h2>
-        <h2 id="champKDA">KDA: </h2>
+        <div id="champ3Info" class="info">
+          <h2 id="games">Games: </h2>
+          <h2 id="champWinRate">Win Rate: </h2>
+          <h2 id="champKDA">KDA: </h2>
+        </div>
       </div>
       <div class="matchHistoryHeader">
         <h1>Match History</h1>
       </div>
-      <div class="matches">
+      <div class="matches" id="match00">
         <img id="game0Champ" src="" alt="">
-        <div>
+        <div class='info' id="game0">
           <h1 id="win-lossgame0"></h1>
           <h1 id="match1KDA">K/D/A</h1>
         </div>
-        <div class="items match1">
+        <div class="items match">
           <img class="item" id="game0item1" src="" alt="">
           <img class="item" id="game0item2" src="" alt="">
           <img class="item" id="game0item3" src="" alt="">
@@ -73,13 +76,13 @@
           <img class="item" id="game0item6" src="" alt="">
         </div>
       </div>
-      <div class="matches">
+      <div class="matches" id="match01">
         <img id="game1Champ" src="" alt="">
-        <div>
+        <div class='info' id="game1">
           <h1 id="win-lossgame1"></h1>
           <h1 id="match2KDA">K/D/A</h1>
         </div>
-        <div class="items">
+        <div class="items match">
           <img class="item" id="game1item1" src="" alt="">
           <img class="item" id="game1item2" src="" alt="">
           <img class="item" id="game1item3" src="" alt="">
@@ -88,13 +91,13 @@
           <img class="item" id="game1item6" src="" alt="">
         </div>
       </div>
-      <div class="matches">
+      <div class="matches" id="match02">
         <img id="game2Champ"src="" alt="">
-        <div>
+        <div class="info" id="game2">
           <h1 id="win-lossgame2"></h1>
           <h1 id="match3KDA">K/D/A</h1>
         </div>
-        <div class="items match3">
+        <div class="items match">
           <img class="item" id="game2item1" src="" alt="">
           <img class="item" id="game2item2"src="" alt="">
           <img class="item" id="game2item3"src="" alt="">
@@ -103,13 +106,13 @@
           <img class="item" id="game2item6"src="" alt="">
         </div>
       </div>
-      <div class="matches">
+      <div class="matches" id="match03">
         <img id="game3Champ" src="" alt="">
-        <div>
+        <div class="info" id="game3">
           <h1 id="win-lossgame3"></h1>
           <h1 id="match4KDA">K/D/A</h1>
         </div>
-        <div class="items match4">
+        <div class="items match">
           <img class="item" id="game3item1"src="" alt="">
           <img class="item" id="game3item2"src="" alt="">
           <img class="item" id="game3item3"src="" alt="">
@@ -118,13 +121,13 @@
           <img class="item" id="game3item6"src="" alt="">
         </div>
       </div>
-      <div class="matches">
+      <div class="matches" id="match04">
         <img id="game4Champ" src="" alt="">
-        <div>
+        <div class="info" id="game4">
           <h1 id="win-lossgame4"></h1>
           <h1 id="match5KDA">K/D/A</h1>
         </div>
-        <div class="items match5">
+        <div class="items match">
           <img class="item" id="game4item1"src="" alt="">
           <img class="item" id="game4item2"src="" alt="">
           <img class="item" id="game4item3"src="" alt="">
@@ -139,9 +142,9 @@
   <aside class="sidebar2"></aside>
 </div>
 
-
-
 <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
+<script src="http://d3js.org/d3.v3.min.js" language="JavaScript"></script>
+<script src="liquidFillGauge.js" language="JavaScript"></script>
 <script src="app.js"></script>
 <script src="app2.js"></script>
 </body>

@@ -2,6 +2,7 @@ var summonerInfo = [];
 var matchIds = [];
 var games = {};
 var items = {};
+var nameList = [];
 var favoriteChamps = {
   champ1: {
     totalSessions: 0,
@@ -16,8 +17,66 @@ var favoriteChamps = {
 var userStats = {
   winRate: 0
 };
+$(function(){
+  $('.name').on('focus', function(){
+    if ($('.headerUl').length > 0) return;
+    var list = localStorage.getItem('nameList');
+
+    if(!list) return;
+    list = JSON.parse(list);
+
+    var ul = $('<ul class="headerUl"></ul>');
+
+    for (var i = 0; i < list.length; i++) {
+      var li = $('<li>' + list[i] + '</li>');
+      li.click(function(e) {
+        $('.name').val($(e.target).text());
+      })
+      ul.append(li);
+    }
+    $('header').append(ul);
+  });
+});
+
+
+
+
+
+
+
+
+
+
+
 
 $('button').on("click", getData);
+$('button').on('click', function(){
+  var name = $('.name').val();
+  var list = localStorage.getItem('nameList');
+
+  if(!list){
+    list = [];
+    list.push(name);
+  }
+  else{
+    var listArray = JSON.parse(list);
+    if(listArray.indexOf(name) === -1){
+      listArray.push(name);
+    }
+    list = listArray;
+  }
+
+  // list.sort();
+  localStorage.setItem('nameList', JSON.stringify(list));
+
+  console.log("local", localStorage.getItem('nameList'));
+
+  console.log("s;dfha");
+  var list = localStorage.getItem('nameList');
+  if(!list) return;
+  list = JSON.parse(list);
+  $('.headerUl').remove();
+});
 
 
 function clearInfo(){
@@ -66,7 +125,6 @@ function getData($playerName){
         dataType: 'json',
       }).then(function(data){
         summonerInfo.push(data);
-        console.log(data);
         for (var i = 0; i < data['participantIdentities'].length; i++) {
           if(data['participantIdentities'][i]['player']['summonerId'] === $playerID){
             var participantIdGame = data['participantIdentities'][i]['participantId'];

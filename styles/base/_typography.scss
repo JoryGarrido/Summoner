@@ -117,8 +117,14 @@ flex-direction:column;
   background-color: $secondary-color;
   margin: 10px;
   margin-top: 0;
-  justify-content: space-between;
   align-items: center;
+}
+.matches{
+  justify-content: space-between;
+}
+
+.match{
+  width:204px;
 }
 .items{
   height: 150px;
@@ -134,4 +140,87 @@ flex-direction:column;
   border: solid, black, 5px;
   height: 64px;
   width: 64px;
+}
+
+.favoriteChampsHeader, .matchHistoryHeader{
+  h1{
+    color: #551E00;
+  }
+}
+
+h2, h1{
+  color: #160339;
+}
+
+.info {
+  margin-left: 10px;
+  display: flex;
+  justify-content: space-around;
+	width: 50%;
+  height: 50%;
+  font-size: 2em;
+	background: hsla(0,0%,100%,.25) border-box;
+	overflow: hidden;
+	border-radius: .3em;
+	box-shadow: 0 0 0 1px hsla(0,0%,100%,.3) inset,
+	            0 .5em 1em rgba(0, 0, 0, 0.6);
+	text-shadow: 0 1px 1px hsla(0,0%,100%,.3);
+}
+#champ1Info, #champ2Info, #champ3Info{
+  flex-direction: column;
+  h2 {
+    margin-left: 10px;
+  }
+}
+
+.favoriteChamps{
+  height: 717px;
+}
+
+.loss{
+  margin-left: 10px;
+  display: flex;
+  justify-content: space-around;
+	width: 50%;
+  height: 50%;
+  font-size: 2em;
+	background: hsla(170,50%,100%,.25) border-box;
+  background-color: rgba(255, 0, 0, 0.6);
+	overflow: hidden;
+	border-radius: .3em;
+	box-shadow: 0 0 0 1px hsla(0,0%,100%,.3) inset,
+	            0 .5em 1em rgba(255, 0, 0, 0.6);
+	text-shadow: 0 1px 1px hsla(0,0%,100%,.3);
+}
+.win{
+margin-left: 10px;
+display: flex;
+justify-content: space-around;
+width: 50%;
+height: 50%;
+font-size: 2em;
+background: hsla(170,50%,100%,.25) border-box;
+background-color: rgba(0, 255, 0, 0.6);
+overflow: hidden;
+border-radius: .3em;
+box-shadow: 0 0 0 1px hsla(0,0%,100%,.3) inset,
+            0 .5em 1em rgba(0, 255, 0, 0.6);
+text-shadow: 0 1px 1px hsla(0,0%,100%,.3);
+}
+
+.matches{
+  background: url(../styles/LoL2.png) no-repeat;
+}
+
+.headerUl{
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  li{
+    float: left;
+    margin-right: 10px;
+    &:hover{
+      cursor: pointer;
+    }
+  }
 }
