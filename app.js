@@ -4,55 +4,40 @@ var games = {};
 var items = {};
 var favoriteChamps = {
   champ1: {
-    id: 0,
     totalSessions: 0,
-    kills: 0,
-    deaths: 0,
-    assists: 0,
-    wins: 0,
-    losses: 0,
-    winRate: 0,
-    champName: ""
   },
   champ2: {
-    id: 0,
     totalSessions: 0,
-    kills: 0,
-    deaths: 0,
-    assists: 0,
-    winRate: 0,
-    champName: ""
   },
   champ3: {
-    id: 0,
     totalSessions: 0,
-    kills: 0,
-    deaths: 0,
-    assists: 0,
-    wins: 0,
-    losses: 0,
-    winRate: 0,
-    champName: ""
   }
 };
 var userStats = {
   winRate: 0
 };
+
 $('button').on("click", getData);
 
+
+function clearInfo(){
+  summonerInfo = [];
+};
+
 function getData($playerName){
+  clearInfo();
   var $playerName = $('.name').val().toLowerCase();
   $.ajax({
-    url: 'https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/' + $playerName + '?api_key=0a7cccf5-526b-4a6a-914d-a1c94d946019',
-    method: "GET",
-  }).then(getSummLeague).then(getMatchHistory).then(getMatchID).then(getMatchData).then(getRankedStats).then(getChampImages)
+    url: 'data/summonername.json',
+    dataType: "json",  }).then(getSummLeague).then(getMatchHistory).then(getMatchID).then(getMatchData).then(getRankedStats).then(getChampImages)
 
   function getSummLeague(data){
     summonerInfo.push(data);
+    // console.log(summonerInfo[0][$playerName]);
     var $playerID = summonerInfo[0][$playerName]['id'];
     return $.ajax({
-      url: 'https://na.api.pvp.net/api/lol/na/v2.5/league/by-summoner/' + $playerID + '?api_key=0a7cccf5-526b-4a6a-914d-a1c94d946019',
-      method: "GET",
+      url: 'data/summonerleague.json',
+      dataType: "json",
     });
   };
 
@@ -60,8 +45,8 @@ function getData($playerName){
     summonerInfo.push(data);
     var $playerID = summonerInfo[0][$playerName]['id'];
     return $.ajax({
-      url: 'https://na.api.pvp.net/api/lol/na/v2.2/matchlist/by-summoner/' + $playerID + '?api_key=0a7cccf5-526b-4a6a-914d-a1c94d946019',
-      method: 'GET',
+      url: 'data/matchlist.json',
+      dataType: 'json',
     })
   };
 
@@ -77,11 +62,11 @@ function getData($playerName){
     var counter = 0;
     for (var i = 0; i < matchIds.length; i++) {
       $.ajax({
-        url: 'https://na.api.pvp.net/api/lol/na/v2.2/match/' + matchIds[i] + '?api_key=0a7cccf5-526b-4a6a-914d-a1c94d946019',
-        method: 'GET',
+        url: 'data/match/match' + i + '.json',
+        dataType: 'json',
       }).then(function(data){
         summonerInfo.push(data);
-
+        console.log(data);
         for (var i = 0; i < data['participantIdentities'].length; i++) {
           if(data['participantIdentities'][i]['player']['summonerId'] === $playerID){
             var participantIdGame = data['participantIdentities'][i]['participantId'];
@@ -101,6 +86,18 @@ function getData($playerName){
              games['winner' + 'game' + counter] = data['participants'][i]['stats']['winner'];
              counter++;
           }
+          games['champId' + 'game' + 0] = data['participants'][3]['championId'];
+          games['assists' + 'game' + 0] = data['participants'][3]['stats']['assists'];
+          games['kills' + 'game' + 0] = data['participants'][3]['stats']['kills'];
+          games['deaths' + 'game' + 0] = data['participants'][3]['stats']['deaths'];
+          games['item0' + 'game' + 0] = data['participants'][3]['stats']['item0'];
+          games['item1' + 'game' + 0] = data['participants'][3]['stats']['item1'];
+          games['item2' + 'game' + 0] = data['participants'][3]['stats']['item2'];
+          games['item3' + 'game' + 0] = data['participants'][3]['stats']['item3'];
+          games['item4' + 'game' + 0] = data['participants'][3]['stats']['item4'];
+          games['item5' + 'game' + 0] = data['participants'][3]['stats']['item5'];
+          games['item6' + 'game' + 0] = data['participants'][3]['stats']['item6'];
+          games['winner' + 'game' + 0] = data['participants'][3]['stats']['winner'];
         }
       }).then(function(){
         for (var i = 0; i < 5; i++) {
@@ -120,8 +117,8 @@ function getRankedStats(data){
   var $playerName = $('.name').val().toLowerCase();
   var $playerID = summonerInfo[0][$playerName]['id'];
   return $.ajax({
-    url: 'https://na.api.pvp.net/api/lol/na/v1.3/stats/by-summoner/' + $playerID + '/ranked?api_key=0a7cccf5-526b-4a6a-914d-a1c94d946019',
-    method: 'GET',
+    url: 'data/stats.json',
+    dataType: 'json',
   }).then(function(data){
     for (var i = 0; i < data['champions'].length; i++) {
       if(data['champions'][i]['id'] !== 0 && data['champions'][i]['stats']['totalSessionsPlayed'] > favoriteChamps['champ1']['totalSessions']){
@@ -167,8 +164,8 @@ function getRankedStats(data){
 
 function getChampImages(){
   $.ajax({
-    url: 'https://na.api.pvp.net/api/lol/static-data/na/v1.2/champion' + '?api_key=0a7cccf5-526b-4a6a-914d-a1c94d946019',
-    method: 'GET',
+    url: 'data/champions.json',
+    dataType: 'json',
   }).then(function (data){
     return getFavoriteChampImages(data);
   }).then(function (){
@@ -181,20 +178,20 @@ function getFavoriteChampImages(data){
   var counter = 0;
     for (i = 0; i < matchIds.length; i++) {
       if(games['champIdgame' + counter] === data['data'][keys]['id']) {
-        games['champNamegame'  + counter] = data['data'][keys]['name'];
+        games['champNamegame'  + counter] = data['data'][keys]['key'];
         games['champImggame'  + counter] = 'http://ddragon.leagueoflegends.com/cdn/6.9.1/img/champion/' + games['champNamegame' + counter] + '.png';
       }
       counter++;
     }
     for (var keys2 in favoriteChamps){
       if (favoriteChamps['champ1']['id'] === data['data'][keys]['id']){
-        favoriteChamps['champ1']['champName'] = data['data'][keys]['name'];
+        favoriteChamps['champ1']['champName'] = data['data'][keys]['key'];
       }
       else if (favoriteChamps['champ2']['id'] === data['data'][keys]['id']){
-        favoriteChamps['champ2']['champName'] = data['data'][keys]['name'];
+        favoriteChamps['champ2']['champName'] = data['data'][keys]['key'];
       }
       else if (favoriteChamps['champ3']['id'] === data['data'][keys]['id']){
-        favoriteChamps['champ3']['champName'] = data['data'][keys]['name'];
+        favoriteChamps['champ3']['champName'] = data['data'][keys]['key'];
       }
     }
   }

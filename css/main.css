@@ -4,12 +4,13 @@
 
 header {
   display: flex;
-  border: 1px solid black; }
+  border: 1px solid black;
+  background-color: #9775AA; }
 
 .landing {
   width: 100vw;
   height: 100vh;
-  background: #933157;
+  background: #582A72;
   display: none;
   justify-content: center;
   align-items: center;
@@ -19,7 +20,7 @@ header {
     margin: 5px;
     height: 15em;
     width: 15em;
-    background-color: #582A72;
+    background-color: #933157;
     color: #FFFFFF; }
 
 #landingName {
@@ -95,13 +96,18 @@ header {
   justify-content: space-between;
   align-items: center; }
 
-#match1Items {
+.items {
   height: 150px;
   display: flex;
   flex-flow: column wrap-reverse;
   justify-content: space-around;
   margin: 10px; }
-  #match1Items img {
+  .items img {
     margin: 2px; }
+
+.item {
+  border: solid, black, 5px;
+  height: 64px;
+  width: 64px; }
 
 /*# sourceMappingURL=main.css.map */
