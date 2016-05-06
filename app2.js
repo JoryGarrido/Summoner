@@ -46,6 +46,7 @@ function setDisplay(){
     var url = "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/";
 
     $('#champ' + i).css('background', 'url(' + url + name + '_0.jpg' +  ')');
+    $('#champ' + i).css('background-repeat', 'no-repeat');
 
 
 

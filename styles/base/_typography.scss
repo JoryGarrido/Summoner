@@ -175,6 +175,7 @@ h2, h1{
 
 .favoriteChamps{
   height: 717px;
+  background-image: no-repeat;
 }
 
 .loss{
@@ -209,7 +210,8 @@ text-shadow: 0 1px 1px hsla(0,0%,100%,.3);
 }
 
 .matches{
-  background: url(../styles/LoL2.png) no-repeat;
+  background-position: 50%;
+  background: url(../styles/LoL2.png) repeat;
 }
 
 .headerUl{

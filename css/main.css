@@ -140,7 +140,8 @@ h2, h1 {
     margin-left: 10px; }
 
 .favoriteChamps {
-  height: 717px; }
+  height: 717px;
+  background-image: no-repeat; }
 
 .loss {
   margin-left: 10px;
@@ -171,7 +172,8 @@ h2, h1 {
   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.3); }
 
 .matches {
-  background: url(../styles/LoL2.png) no-repeat; }
+  background-position: 50%;
+  background: url(../styles/LoL2.png) repeat; }
 
 .headerUl {
   padding: 0;

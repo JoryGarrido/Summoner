@@ -38,18 +38,10 @@ $(function(){
   });
 });
 
-
-
-
-
-
-
-
-
-
-
-
 $('button').on("click", getData);
+
+
+
 $('button').on('click', function(){
   var name = $('.name').val();
   var list = localStorage.getItem('nameList');
